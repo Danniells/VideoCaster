@@ -130,6 +130,17 @@ body {
     font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
     font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
     left: -10px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        background-color: transparent;
+    } 
+
+    a:hover{
+        text-decoration: none;
+    }
+
 }
 .header1 {
     /* Estilos para o cabeçalho 1 */

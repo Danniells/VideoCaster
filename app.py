@@ -4,12 +4,17 @@ import youtube_dl
 import moviepy.editor as mp
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, '/static',template_folder='template')
 CORS(app)
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 @app.route('/converter', methods=['GET', 'POST'])
 def converter():

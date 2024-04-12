@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Envia a URL para o servidor para conversão
-        fetch("http://localhost/converter", { // /converter
+        fetch("http://localhost:5000/converter", { // /converter
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
