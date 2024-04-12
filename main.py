@@ -1,16 +1,20 @@
 import tempfile
 from typing import Annotated
-from fastapi import FastAPI, File, HTTPException, UploadFile
-from fastapi.responses import StreamingResponse
+from fastapi import FastAPI, File, HTTPException, UploadFile,Request
+from fastapi.responses import StreamingResponse,HTMLResponse
 from pydantic import BaseModel
 import io
 from moviepy.editor import *
-
-
+from fastapi.templating import Jinja2Templates
 from utils import convert_mp4_to_mp3, download_video
+
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+templates = Jinja2Templates(directory="templates")
 class Conversion(BaseModel):
     filename: str
 
@@ -18,9 +22,9 @@ class DownlaodPayload(BaseModel):
     url: str
 
 
-@app.get("/")
-def alive():
-    return {"status":"alive"}
+# @app.get("/")
+# def alive():
+#     return {"status":"alive"}
 
 @app.get("/authors")
 def authors():
@@ -62,3 +66,16 @@ async def downloadYoutube(downlaod_payload: DownlaodPayload):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse(
+        request=request, name="./home/index.html"
+    )
+
+@app.get("/about", response_class=HTMLResponse)
+async def about(request: Request):
+    return templates.TemplateResponse(
+        request=request, name="./about/about.html"
+    )
