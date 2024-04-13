@@ -14,3 +14,8 @@ pip install jinja2
 uvicorn main:app --reload
 python -m uvicorn main:app --reload
 
+
+# Container 
+
+docker build -t fastapi-app .
+docker run -d -p 8000:80 fastapi-app
