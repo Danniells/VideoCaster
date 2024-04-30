@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>VideoCaster</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!--para importar a fonte Montserrat-->
+</head>
+<body>
+    <header class="header-container-converter">
+        <h1 class="header01">Home</h1>
+        <h1 class="header02">Converter</h1>
+        <h3 class="header03">Sobre</h3>
+        <img src="logo-cinza-videocaster.png" alt="Sua Logo">
+    </header>   
+
+
+    <script>
+        // Selecione os elementos do cabeçalho
+        const headerHome = document.querySelector('.header01');
+        const headerConverter = document.querySelector('.header02');
+        const headerSobre = document.querySelector('.header03');
+    
+        // Adicione um evento de clique para cada elemento do cabeçalho
+        headerHome.addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redireciona para a página inicial
+        });
+    
+        headerConverter.addEventListener('click', function() {
+            window.location.href = 'converter.html'; // Redireciona para a página de conversão
+        });
+    
+        headerSobre.addEventListener('click', function() {
+            window.location.href = 'sobre.html'; // Redireciona para a página "Sobre"
+        });
+    </script>
+
+    
+
+    <div class="content-wrapper-converter">
+        <h1>PASSO 01</h1> <!--<h1 class="step1">PASSO 1</h1> uma outra opção-->
+        <h2>PASSO 02</h2>
+        <h3>PASSO 03</h3>
+        
+        <p class="custom-paragraph1">Copie o</p> 
+        <p class="custom-paragraph2">URL</p>
+        <p class="custom-paragraph3">Cole o</p>
+        <p class="custom-paragraph4">URL</p>
+        <p class="custom-paragraph5">Curta sua</p>
+        <p class="custom-paragraph6">música</p>
+
+
+        <div class="overlay-image image1"></div> <!-- Adiciona um div para a imagem de overlay -->
+        <div class="overlay-image image2"></div>
+        <div class="overlay-image image3"></div>
+        
+        <form id="conversion-form">
+            <input type="text" id="url-input" class="url-input"> <!--placeholder="Insira a URL do YouTube aqui" vai depois de id--> 
+        </form>
+
+        <!-- Formulário com botão -->
+        <button type="button" id="convert-button-02">Converter</button>
+        <button type="button" id="download-02">Baixar</button>
+  </div>
+  
+  <script src="script.js"></script>
+  
+</body>
+</html>

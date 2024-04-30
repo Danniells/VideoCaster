@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+    <title>VideoCaster</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!--para importar a fonte Montserrat-->
+
+</head>
+<body>
+    <header class="header-container">
+        <h1 class="header1">Home</h1>
+        <h2 class="header2">Converter</h2>
+        <h3 class="header3">Sobre</h3>
+        <img src="logo-cinza-videocaster.png" alt="Sua Logo">
+        <!--<button id="btn1"><a id="conection1" href="converter.html">Converter</a></button>-->
+    </header> 
+    
+    
+    <script>
+        // Selecione os elementos do cabeçalho
+        const headerHome = document.querySelector('.header1');
+        const headerConverter = document.querySelector('.header2');
+        const headerSobre = document.querySelector('.header3');
+    
+        // Adicione um evento de clique para cada elemento do cabeçalho
+        headerHome.addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redireciona para a página inicial
+        });
+    
+        headerConverter.addEventListener('click', function() {
+            window.location.href = 'converter.html'; // Redireciona para a página de conversão
+        });
+    
+        headerSobre.addEventListener('click', function() {
+            window.location.href = 'sobre.html'; // Redireciona para a página "Sobre"
+        });
+    </script>
+
+
+
+    <div class="content-wrapper">
+        <img src="logo-videocaster.png" alt="Logo" class="logo">
+        <!-- Seu conteúdo principal aqui -->
+        <h1>O seu momento pode <br> se tornar um melhor </h1>
+        <h2>momento!</h2>
+        <h3>Eternize seu vídeo favorito em um áudio! <br> Com apenas alguns cliques, você pode compartilhar <br> essa experiência </h3>
+        <!-- Formulário com botão -->
+
+            <button type="button" id="convert-button">Converter</button>
+            <button type="button" id="read-more">Leia mais</button>
+
+    </div>
+
+
+<script>
+   
+    const convertButton = document.getElementById('convert-button');
+    const readMoreButton = document.getElementById('read-more');
+
+    // Adicione eventos de clique aos botões
+    convertButton.addEventListener('click', function() {
+        window.location.href = 'converter.html';
+    });
+
+    readMoreButton.addEventListener('click', function() {
+        window.location.href = 'sobre.html'; 
+    });
+
+</script>
+   
+</body>
+</html>

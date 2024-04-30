@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+    <title>VideoCaster</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!--para importar a fonte Montserrat-->
+
+</head>
+<body>
+    <header class="header-container-sobre">
+        <h1 class="header04">Home</h1>
+        <h1 class="header05">Converter</h1>
+        <h3 class="header06">Sobre</h3>
+        <img src="logo-cinza-videocaster.png" alt="Sua Logo">
+    </header> 
+    
+    <script>
+        // Selecione os elementos do cabeçalho
+        const headerHome = document.querySelector('.header04');
+        const headerConverter = document.querySelector('.header05');
+        const headerSobre = document.querySelector('.header06');
+    
+        // Adicione um evento de clique para cada elemento do cabeçalho
+        headerHome.addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redireciona para a página inicial
+        });
+    
+        headerConverter.addEventListener('click', function() {
+            window.location.href = 'converter.html'; // Redireciona para a página de conversão
+        });
+    
+        headerSobre.addEventListener('click', function() {
+            window.location.href = 'sobre.html'; // Redireciona para a página "Sobre"
+        });
+    </script>
+
+
+
+    <div class="content-wrapper-sobre">
+        <h1>Propósito do projeto</h1>
+        <p class="custom-paragraph-01">Nosso projeto envolve estudantes da área de tecnologia <br>
+            apaixonados por nossos cursos. Nesse serviço, o usuário <br>
+            pode transformar momentos em outros momentos, <br> 
+            uma mistura de sentimentos que apenas a tecnologia <br>  
+            e a física do som pode transformar.</p>
+        <h2>Fale Conosco</h2>
+        <p class="custom-paragraph-02">Instagram</p>
+        <p class="custom-paragraph-03">suportevideocaster@gmail.com</p>
+
+        <div class="overlay-image-1 image-insta"></div>
+        <div class="overlay-image-1 image-email"></div>
+
+    </div>
+   
+    <script src="script.js"></script>
+    
+</body>
+</html>

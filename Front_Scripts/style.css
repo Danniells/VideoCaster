@@ -1,0 +1,876 @@
+/* Estilos para o corpo da página */
+/*primeira tela, home----------------------------------------------------------------------------------*/
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
+}
+.content-wrapper { 
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content-wrapper::before { /*ajuste da imagem de fundo*/
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('foto-note-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(50%) contrast(0.7); /* Reduz o brilho da imagem em 50% */
+    z-index: -1; /* Garante que o pseudo-elemento esteja atrás do conteúdo */
+}
+.logo {
+    display: block;
+    position: absolute; /* Posicionamento absoluto */
+    margin: 0 auto;
+    max-width: 700px; /* Tamanho máximo da logo */
+    height: auto;
+    right: 41px; /* Alinha à direita */
+    top: -125%; /* Posiciona o logo no meio da página */
+    transform: translateY(150%); /* Ajusta a posição vertical do logo */
+}
+.content-wrapper h1 {
+    position: absolute;
+    top: 30%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 44px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+}
+.content-wrapper h2 {
+    position: absolute;
+    top: 42%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #FF7A00;
+    font-size: 44px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+}
+.content-wrapper h3 {
+    position: absolute;
+    top: 65%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+}
+.content-wrapper button {
+    position: absolute;
+    top: 85%;
+    left: 10px;
+    transform: translateY(-50%);
+    padding: 10px 34px; /* Adiciona preenchimento interno */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    /*cursor: pointer;  Altera o cursor ao passar o mouse */
+    /*transition: all 0.2s ease-in-out;*/
+    font-size: 24px; /* Tamanho da fonte */
+    font-weight: 400; /* Peso da fonte normal (400) */
+}
+/* Estilos específicos para o botão "Converter" (opcional) */
+#convert-button {
+    background-image: linear-gradient(to right, #FF7A00, #FF9900);
+    margin: 0 15px 0 0; /* Aumenta a margem à direita para 15px */
+  }
+  
+  /* Estilos específicos para o botão "Leia mais" (opcional) */
+#read-more {
+    background-color: transparent; /* Cor de fundo transparente */
+    margin: 0 0 0 200px; /* Aumenta a margem à esquerda para 200px */
+    border: 2px solid #fff; /* Borda branca sólida de 2px */
+  }
+
+.url-input {
+    position: absolute;
+    top: 81%; /* Ajusta a posição do input em relação ao botão */
+    left: calc(10px + 34px + 148px); /* Posiciona o input ao lado do botão com um espaço de 20px */
+    padding: 8px; /* Adiciona preenchimento interno */
+    width: 300px; /* Define a largura do input */
+    height: 32px; /* Define a altura do input */
+    border: 1px solid #ccc; /* Adiciona uma borda */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    background-color: white; /* Cor de fundo do input */
+    z-index: 2; /* Garante que o input esteja na frente do background */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Estilos para o input quando estiver em foco */
+.url-input:focus {
+    border-color: transparent; /* Define a cor da borda como transparente quando o input está em foco */
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+/* Estilos para o cabeçalho */
+.header-container {
+    position: fixed; /* Posição fixa para manter o cabeçalho no topo */
+    top: 0; /* Define a distância do topo como 0 */
+    left: 0; /* Alinha o cabeçalho à esquerda */
+    z-index: 3; /* Certifique-se de que o cabeçalho esteja na frente do background */
+    text-align: center; /* Centraliza os cabeçalhos */
+    background-image:linear-gradient(to right, #FF7A00, #FF9900); /* Gradiente linear de direita para esquerda */
+    color: #fff; /* Cor do texto no cabeçalho */
+    padding: 12px; /* Espaçamento interno */
+    text-align: left; /* Centraliza o texto */
+    width: 1938px; /* Largura do cabeçalho */
+    height: 34px; /* Altura do cabeçalho */
+    /*left: -8px; /* Posição esquerda */
+    width: calc(100% - 10px); /* Largura do cabeçalho, descontando a margem esquerda */
+}
+
+.header1, .header2, .header3 {
+    display: inline-block; /* Faz com que os cabeçalhos fiquem lado a lado */
+    width: 110px; /* Largura dos cabeçalhos */
+    height: 40px; /* Altura dos cabeçalhos */
+    background-color: transparent; /* Cor de fundo transparente */
+    color: inherit; /* Herda a cor do texto do cabeçalho-container */
+    margin:0 2px 0 0; /* Espaço entre os cabeçalhos */
+    font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    left: -10px;
+}
+.header1 {
+    /* Estilos para o cabeçalho 1 */
+    font-weight: 700; /* Peso da fonte bold (700) */
+}
+
+.header2 {
+    /* Estilos para o cabeçalho 2 */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    margin: 0 12px 0 0; /* Aumenta a margem direita de header2 para 10px */
+}
+
+.header3 {
+   /* Estilos para o cabeçalho 2 */
+   font-weight: 400; /* Peso da fonte normal (400) */  
+   margin: 0 0 0 28px; /* Aumenta a margem esquerda de header3 para 10px */
+}
+
+.header-container img {
+    position: absolute; /* Posicionamento absoluto para flexibilidade */
+    top: 43%; /* Alinha o topo da logo com o centro vertical do cabeçalho */
+    left: 1260px; /* Distância da logo da borda esquerda */
+    transform: translateY(-50%); /* Compensa o deslocamento causado pelo posicionamento `top: 50%` */
+    max-height: 58px; /* Define a altura máxima da logo */
+    padding: 20px; /* Espaçamento interno */
+  }
+
+/* Estilos para o conteúdo principal */
+.main-content {
+    max-width: 800px; /* Define a largura máxima do conteúdo */
+    margin: 20px auto; /* Centraliza o conteúdo horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #fff; /* Cor de fundo do conteúdo */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+}
+
+a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+/*segunda tela, converter.html--------------------------------------------------------------------*/
+.header-container-converter {
+    position: fixed; /* Posição fixa para manter o cabeçalho no topo */
+    top: 0; /* Define a distância do topo como 0 */
+    left: 0; /* Alinha o cabeçalho à esquerda */
+    z-index: 3; /* Certifique-se de que o cabeçalho esteja na frente do background */
+    text-align: center; /* Centraliza os cabeçalhos */
+    background-image:linear-gradient(to right, #FF7A00, #FF9900); /* Gradiente linear de direita para esquerda */
+    color: #fff; /* Cor do texto no cabeçalho */
+    padding: 12px; /* Espaçamento interno */
+    text-align: left; /* Centraliza o texto */
+    width: 1938px; /* Largura do cabeçalho */
+    height: 34px; /* Altura do cabeçalho */
+    /*left: -8px; /* Posição esquerda */
+    width: calc(100% - 10px); /* Largura do cabeçalho, descontando a margem esquerda */
+}
+
+.header01, .header02, .header03 {
+    display: inline-block; /* Faz com que os cabeçalhos fiquem lado a lado */
+    width: 110px; /* Largura dos cabeçalhos */
+    height: 40px; /* Altura dos cabeçalhos */
+    background-color: transparent; /* Cor de fundo transparente */
+    color: inherit; /* Herda a cor do texto do cabeçalho-container */
+    margin:0 2px 0 0; /* Espaço entre os cabeçalhos */
+    font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    left: -10px;
+}
+.header01 {
+    /* Estilos para o cabeçalho 1 */
+    font-weight: 400; /* Peso da fonte bold (700) */
+}
+
+.header02 {
+    /* Estilos para o cabeçalho 2 */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    margin: 0 12px 0 0; /* Aumenta a margem direita de header2 para 10px */
+}
+
+.header03 {
+   /* Estilos para o cabeçalho 2 */
+   font-weight: 400; /* Peso da fonte normal (400) */  
+   margin: 0 0 0 28px; /* Aumenta a margem esquerda de header3 para 10px */
+}
+
+.header-container-converter img {
+    position: absolute; /* Posicionamento absoluto para flexibilidade */
+    top: 43%; /* Alinha o topo da logo com o centro vertical do cabeçalho */
+    left: 1260px; /* Distância da logo da borda esquerda */
+    transform: translateY(-50%); /* Compensa o deslocamento causado pelo posicionamento `top: 50%` */
+    max-height: 58px; /* Define a altura máxima da logo */
+    padding: 20px; /* Espaçamento interno */
+  }
+
+.content-wrapper-converter {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content-wrapper-converter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('foto-converter.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(50%); /* Reduz o brilho da imagem em 50% */
+    z-index: -1; /* Garante que o pseudo-elemento esteja atrás do conteúdo */
+}
+
+.url-input {
+    position: absolute;
+    top: 45%; /* Ajusta a posição do input em relação ao botão 81 */
+    left: calc(50% - 375px); /* Posiciona o input ao lado do botão com um espaço de 20px */
+    padding: 4px; /* Adiciona preenchimento interno 8*/
+    width: 720px; /* Define a largura do input 750*/
+    height: 32px; /* Define a altura do input */
+    border: 1px solid #ccc; /* Adiciona uma borda */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    background-color: white; /* Cor de fundo do input */
+    z-index: 2; /* Garante que o input esteja na frente do background */
+    transition: all 0.2s ease-in-out;
+}
+/* Estilos para o input quando estiver em foco */
+.url-input:focus {
+    border-color: transparent; /* Define a cor da borda como transparente quando o input está em foco */
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+.content-wrapper-converter button {
+    position: absolute;
+    top: 58%; /*85%*/
+    left: 490px /*10 ou 478px*/;
+    transform: translateY(-50%);
+    padding: 8px 26px; /* Adiciona preenchimento interno 10px 34px*/
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 10px; /* Adiciona bordas arredondadas 5px*/
+    /*cursor: pointer;  Altera o cursor ao passar o mouse */
+    /*transition: all 0.2s ease-in-out;*/
+    font-size: 21px; /* Tamanho da fonte 24px*/
+    font-weight: 400; /* Peso da fonte normal (400) */
+
+}
+
+/* Estilos específicos para o botão "Converter" (opcional) */
+#convert-button-2 {
+    background-image: linear-gradient(to right, #FF7A00, #FF9900);
+    margin: 0 15px 0 0; /* Aumenta a margem à direita para 15px (0 15px 0 0)*/
+
+  }
+  
+/* Estilos específicos para o botão "Leia mais" (opcional) */
+#download {
+    background-color: #464646; /* Cor de fundo transparente */
+    margin: 0 0 0 242px; /* Aumenta a margem à esquerda para 200px (0 0 0 248px)*/
+    width: 140px; /* Define a largura do botão "Download" */
+    transition: background-color 0.3s ease; 
+  }
+
+
+.overlay-image { /*definições das logos da página*/
+    position: absolute; /* Posiciona absolutamente em relação ao elemento pai */
+    width: 44px; /* Define a largura da imagem pequena */
+    height: 44px; /* Define a altura da imagem pequena */
+    z-index: 2; /* Garante que a imagem pequena esteja acima do background */
+    background-size: cover; /* Garante que a imagem pequena cubra todo o espaço disponível */
+    padding: 1px; /* Define o padding para ajustar o tamanho da imagem */
+}
+
+.image1 {
+    background-image: url('1-logo-copiar.png'); /* Adiciona a imagem pequena 1 */
+    top: 490px; /* Ajusta a posição vertical da imagem 1 */
+    left: 460px; /* Ajusta a posição horizontal da imagem 1 */
+}
+
+.image2 {
+    background-image: url('2-logo-colar.png'); /* Adiciona a imagem pequena 1 */
+    top: 490px; /* Ajusta a posição vertical da imagem 1 */
+    left: 660px; /* Ajusta a posição horizontal da imagem 1 */
+}
+
+.image3 {
+    background-image: url('3-logo-baixar.png'); /* Adiciona a imagem pequena 1 */
+    top: 490px; /* Ajusta a posição vertical da imagem 1 */
+    left: 850px; /* Ajusta a posição horizontal da imagem 1 */
+}
+
+.content-wrapper-converter h1 {
+    position: absolute;
+    top: 86%;
+    transform: translateY(-37%);
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 438px; /*438*/
+}
+
+.content-wrapper-converter h2 {
+    position: absolute;
+    top: 86%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 636px; /*636*/
+}
+.content-wrapper-converter h3 {
+    position: absolute;
+    top: 86%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 832px;  /*836*/
+}
+
+.custom-paragraph1 {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 452px;
+   
+}
+.custom-paragraph2 {
+    position: absolute;
+    top: 93%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 462px;  
+}
+.custom-paragraph3 {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-71%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 660px;  
+}
+.custom-paragraph4 {
+    position: absolute;
+    top: 93%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 668px;  
+}
+.custom-paragraph5 {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 842px;  
+}
+.custom-paragraph6 {
+    position: absolute;
+    top: 93%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 850px;  
+}
+/*terceira tela, converter2.html--------------------------------------------------------------------*/
+.header-container-converter {
+    position: fixed; /* Posição fixa para manter o cabeçalho no topo */
+    top: 0; /* Define a distância do topo como 0 */
+    left: 0; /* Alinha o cabeçalho à esquerda */
+    z-index: 3; /* Certifique-se de que o cabeçalho esteja na frente do background */
+    text-align: center; /* Centraliza os cabeçalhos */
+    background-image:linear-gradient(to right, #FF7A00, #FF9900); /* Gradiente linear de direita para esquerda */
+    color: #fff; /* Cor do texto no cabeçalho */
+    padding: 12px; /* Espaçamento interno */
+    text-align: left; /* Centraliza o texto */
+    width: 1938px; /* Largura do cabeçalho */
+    height: 34px; /* Altura do cabeçalho */
+    /*left: -8px; /* Posição esquerda */
+    width: calc(100% - 10px); /* Largura do cabeçalho, descontando a margem esquerda */
+}
+
+.header01, .header02, .header03 {
+    display: inline-block; /* Faz com que os cabeçalhos fiquem lado a lado */
+    width: 110px; /* Largura dos cabeçalhos */
+    height: 40px; /* Altura dos cabeçalhos */
+    background-color: transparent; /* Cor de fundo transparente */
+    color: inherit; /* Herda a cor do texto do cabeçalho-container */
+    margin:0 2px 0 0; /* Espaço entre os cabeçalhos */
+    font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    left: -10px;
+}
+.header01 {
+    /* Estilos para o cabeçalho 1 */
+    font-weight: 400; /* Peso da fonte bold (700) */
+}
+
+.header02 {
+    /* Estilos para o cabeçalho 2 */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    margin: 0 12px 0 0; /* Aumenta a margem direita de header2 para 10px */
+}
+
+.header03 {
+   /* Estilos para o cabeçalho 2 */
+   font-weight: 400; /* Peso da fonte normal (400) */  
+   margin: 0 0 0 28px; /* Aumenta a margem esquerda de header3 para 10px */
+}
+
+.header-container-converter img {
+    position: absolute; /* Posicionamento absoluto para flexibilidade */
+    top: 43%; /* Alinha o topo da logo com o centro vertical do cabeçalho */
+    left: 1260px; /* Distância da logo da borda esquerda */
+    transform: translateY(-50%); /* Compensa o deslocamento causado pelo posicionamento `top: 50%` */
+    max-height: 58px; /* Define a altura máxima da logo */
+    padding: 20px; /* Espaçamento interno */
+  }
+
+.content-wrapper-converter {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content-wrapper-converter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('foto-converter.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(50%); /* Reduz o brilho da imagem em 50% */
+    z-index: -1; /* Garante que o pseudo-elemento esteja atrás do conteúdo */
+}
+
+.url-input {
+    position: absolute;
+    top: 45%; /* Ajusta a posição do input em relação ao botão 81 */
+    left: calc(50% - 375px); /* Posiciona o input ao lado do botão com um espaço de 20px */
+    padding: 4px; /* Adiciona preenchimento interno 8*/
+    width: 720px; /* Define a largura do input 750*/
+    height: 32px; /* Define a altura do input */
+    border: 1px solid #ccc; /* Adiciona uma borda */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    background-color: white; /* Cor de fundo do input */
+    z-index: 2; /* Garante que o input esteja na frente do background */
+    transition: all 0.2s ease-in-out;
+}
+/* Estilos para o input quando estiver em foco */
+.url-input:focus {
+    border-color: transparent; /* Define a cor da borda como transparente quando o input está em foco */
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+.content-wrapper-converter button {
+    position: absolute;
+    top: 58%; /*85%*/
+    left: 490px /*10 ou 478px*/;
+    transform: translateY(-50%);
+    padding: 8px 26px; /* Adiciona preenchimento interno 10px 34px*/
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 10px; /* Adiciona bordas arredondadas 5px*/
+    /*cursor: pointer;  Altera o cursor ao passar o mouse */
+    /*transition: all 0.2s ease-in-out;*/
+    font-size: 21px; /* Tamanho da fonte 24px*/
+    font-weight: 400; /* Peso da fonte normal (400) */
+
+}
+
+/* Estilos específicos para o botão "Converter" (opcional) */
+#convert-button-02 {
+    background-color: #464646; /* Cor de fundo transparente */
+    margin: 0 15px 0 0; /* Aumenta a margem à direita para 15px (0 15px 0 0)*/
+  }
+  
+/* Estilos específicos para o botão "Leia mais" (opcional) */
+#download-02 {
+    background-image: linear-gradient(to right, #FF7A00, #FF9900);
+    margin: 0 0 0 242px; /* Aumenta a margem à esquerda para 200px (0 0 0 248px)*/
+    width: 140px; /* Define a largura do botão "Download" */
+    transition: background-color 0.3s ease; 
+  }
+
+.overlay-image { /*definições das logos da página*/
+    position: absolute; /* Posiciona absolutamente em relação ao elemento pai */
+    width: 44px; /* Define a largura da imagem pequena */
+    height: 44px; /* Define a altura da imagem pequena */
+    z-index: 2; /* Garante que a imagem pequena esteja acima do background */
+    background-size: cover; /* Garante que a imagem pequena cubra todo o espaço disponível */
+    padding: 1px; /* Define o padding para ajustar o tamanho da imagem */
+}
+
+.image1 {
+    background-image: url('1-logo-copiar.png'); /* Adiciona a imagem pequena 1 */
+    top: 490px; /* Ajusta a posição vertical da imagem 1 */
+    left: 460px; /* Ajusta a posição horizontal da imagem 1 */
+}
+
+.image2 {
+    background-image: url('2-logo-colar.png'); /* Adiciona a imagem pequena 1 */
+    top: 490px; /* Ajusta a posição vertical da imagem 1 */
+    left: 660px; /* Ajusta a posição horizontal da imagem 1 */
+}
+
+.image3 {
+    background-image: url('3-logo-baixar.png'); /* Adiciona a imagem pequena 1 */
+    top: 490px; /* Ajusta a posição vertical da imagem 1 */
+    left: 850px; /* Ajusta a posição horizontal da imagem 1 */
+}
+
+.content-wrapper-converter h1 {
+    position: absolute;
+    top: 86%;
+    transform: translateY(-37%);
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 438px; /*438*/
+}
+
+.content-wrapper-converter h2 {
+    position: absolute;
+    top: 86%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 636px; /*636*/
+}
+.content-wrapper-converter h3 {
+    position: absolute;
+    top: 86%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 832px;  /*836*/
+}
+
+.custom-paragraph1 {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 452px;
+   
+}
+.custom-paragraph2 {
+    position: absolute;
+    top: 93%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 462px;  
+}
+.custom-paragraph3 {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-71%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 660px;  
+}
+.custom-paragraph4 {
+    position: absolute;
+    top: 93%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 668px;  
+}
+.custom-paragraph5 {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 842px;  
+}
+.custom-paragraph6 {
+    position: absolute;
+    top: 93%;
+    transform: translateY(-62%);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+    left: 850px;  
+}
+
+
+/*quarta tela, sobre.html--------------------------------------------------------------------*/
+.header-container-sobre {
+    position: fixed; /* Posição fixa para manter o cabeçalho no topo */
+    top: 0; /* Define a distância do topo como 0 */
+    left: 0; /* Alinha o cabeçalho à esquerda */
+    z-index: 3; /* Certifique-se de que o cabeçalho esteja na frente do background */
+    text-align: center; /* Centraliza os cabeçalhos */
+    background-image:linear-gradient(to right, #FF7A00, #FF9900); /* Gradiente linear de direita para esquerda */
+    color: #fff; /* Cor do texto no cabeçalho */
+    padding: 12px; /* Espaçamento interno */
+    text-align: left; /* Centraliza o texto */
+    width: 1938px; /* Largura do cabeçalho */
+    height: 34px; /* Altura do cabeçalho */
+    /*left: -8px; /* Posição esquerda */
+    width: calc(100% - 10px); /* Largura do cabeçalho, descontando a margem esquerda */
+}
+
+.header04, .header05, .header06 {
+    display: inline-block; /* Faz com que os cabeçalhos fiquem lado a lado */
+    width: 110px; /* Largura dos cabeçalhos */
+    height: 40px; /* Altura dos cabeçalhos */
+    background-color: transparent; /* Cor de fundo transparente */
+    color: inherit; /* Herda a cor do texto do cabeçalho-container */
+    margin:0 2px 0 0; /* Espaço entre os cabeçalhos */
+    font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    left: -10px;
+}
+.header04 {
+    /* Estilos para o cabeçalho 1 */
+    font-weight: 400; /* Peso da fonte bold (700) */
+}
+
+.header05 {
+    /* Estilos para o cabeçalho 2 */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    margin: 0 12px 0 0; /* Aumenta a margem direita de header2 para 10px */
+}
+
+.header06 {
+   /* Estilos para o cabeçalho 2 */
+   font-weight: 700; /* Peso da fonte normal (400) */  
+   margin: 0 0 0 28px; /* Aumenta a margem esquerda de header3 para 10px */
+}
+
+.header-container-sobre img {
+    position: absolute; /* Posicionamento absoluto para flexibilidade */
+    top: 43%; /* Alinha o topo da logo com o centro vertical do cabeçalho */
+    left: 1260px; /* Distância da logo da borda esquerda */
+    transform: translateY(-50%); /* Compensa o deslocamento causado pelo posicionamento `top: 50%` */
+    max-height: 58px; /* Define a altura máxima da logo */
+    padding: 20px; /* Espaçamento interno */
+  }
+
+.content-wrapper-sobre {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content-wrapper-sobre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('foto-tecnologia.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(50%) contrast(0.7); /* Reduz o brilho da imagem em 50% */
+    z-index: -1; /* Garante que o pseudo-elemento esteja atrás do conteúdo */
+}
+.content-wrapper-sobre h1 {
+    position: absolute;
+    top: 25%;
+    left: 323px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 65px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+}
+.custom-paragraph-01 {
+    position: absolute;
+    top: 52%;
+    left: 323px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+}
+.content-wrapper-sobre h2 {
+    position: absolute;
+    top: 75%;
+    left: 323px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 23px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 700; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+}
+.overlay-image-1 { /*definições das logos da página*/
+    position: absolute; /* Posiciona absolutamente em relação ao elemento pai */
+    width: 44px; /* Define a largura da imagem pequena */
+    height: 44px; /* Define a altura da imagem pequena */
+    z-index: 2; /* Garante que a imagem pequena esteja acima do background */
+    background-size: cover; /* Garante que a imagem pequena cubra todo o espaço disponível */
+    padding: 6px; /* Define o padding para ajustar o tamanho da imagem */
+}
+
+.image-insta {
+    background-image: url('logo-insta.png'); /* Adiciona a imagem pequena 1 */
+    top: 528px; /* Ajusta a posição vertical da imagem 1 */
+    left: 323px; /* Ajusta a posição horizontal da imagem 1 */
+    cursor:pointer;
+}
+.image-email {
+    background-image: url('logo-email.png'); /* Adiciona a imagem pequena 1 */
+    top: 528px; /* Ajusta a posição vertical da imagem 1 */
+    left: 590px; /* Ajusta a posição horizontal da imagem 1 */
+    cursor:pointer;
+}
+.custom-paragraph-02 {
+    position: absolute;
+    top: 84%;
+    left: 388px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+}
+.custom-paragraph-03 {
+    position: absolute;
+    top: 84%;
+    left: 655px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
+    font-weight: 400; /* Peso da fonte normal (400) */
+    text-align: left; /* Centraliza o texto */
+    z-index: 2;
+}
