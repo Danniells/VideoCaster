@@ -32,11 +32,12 @@ body {
     display: block;
     position: absolute; /* Posicionamento absoluto */
     margin: 0 auto;
-    max-width: 700px; /* Tamanho máximo da logo */
+    max-width: 100%; /* Largura máxima da logo */
+    max-height: 65%;
     height: auto;
     right: 41px; /* Alinha à direita */
-    top: -125%; /* Posiciona o logo no meio da página */
-    transform: translateY(150%); /* Ajusta a posição vertical do logo */
+    top: 50%; /* Posiciona o logo no meio da página */
+    transform: translateY(-50%); /* Ajusta a posição vertical do logo */
 }
 .content-wrapper h1 {
     position: absolute;
@@ -590,7 +591,7 @@ a:hover {
     width: 44px; /* Define a largura da imagem pequena */
     height: 44px; /* Define a altura da imagem pequena */
     z-index: 2; /* Garante que a imagem pequena esteja acima do background */
-    background-size: cover; /* Garante que a imagem pequena cubra todo o espaço disponível */
+    background-size: contain; /* Garante que a imagem pequena cubra todo o espaço disponível */
     padding: 1px; /* Define o padding para ajustar o tamanho da imagem */
 }
 
