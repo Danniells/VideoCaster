@@ -92,6 +92,7 @@ body {
 #convert-button {
     background-image: linear-gradient(to right, #FF7A00, #FF9900);
     margin: 0 15px 0 0; /* Aumenta a margem à direita para 15px */
+    cursor: pointer;
   }
   
   /* Estilos específicos para o botão "Leia mais" (opcional) */
@@ -99,6 +100,7 @@ body {
     background-color: transparent; /* Cor de fundo transparente */
     margin: 0 0 0 200px; /* Aumenta a margem à esquerda para 200px */
     border: 2px solid #fff; /* Borda branca sólida de 2px */
+    cursor: pointer;
   }
 
 .url-input {
@@ -148,6 +150,7 @@ body {
     font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
     font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
     left: -10px;
+    cursor: pointer;
 }
 .header1 {
     /* Estilos para o cabeçalho 1 */
@@ -215,6 +218,7 @@ a:hover {
     font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
     font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
     left: -10px;
+    cursor: pointer;
 }
 .header01 {
     /* Estilos para o cabeçalho 1 */
@@ -303,7 +307,7 @@ a:hover {
 #convert-button-2 {
     background-image: linear-gradient(to right, #FF7A00, #FF9900);
     margin: 0 15px 0 0; /* Aumenta a margem à direita para 15px (0 15px 0 0)*/
-
+    cursor: pointer;
   }
   
 /* Estilos específicos para o botão "Leia mais" (opcional) */
@@ -312,6 +316,7 @@ a:hover {
     margin: 0 0 0 242px; /* Aumenta a margem à esquerda para 200px (0 0 0 248px)*/
     width: 140px; /* Define a largura do botão "Download" */
     transition: background-color 0.3s ease; 
+    cursor: pointer;
   }
 
 
@@ -480,6 +485,7 @@ a:hover {
     font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
     font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
     left: -10px;
+    cursor: pointer;
 }
 .header01 {
     /* Estilos para o cabeçalho 1 */
@@ -568,6 +574,7 @@ a:hover {
 #convert-button-02 {
     background-color: #464646; /* Cor de fundo transparente */
     margin: 0 15px 0 0; /* Aumenta a margem à direita para 15px (0 15px 0 0)*/
+    cursor: pointer;
   }
   
 /* Estilos específicos para o botão "Leia mais" (opcional) */
@@ -745,6 +752,7 @@ a:hover {
     font-size: 22px; /* Tamanho da fonte (mude o valor conforme desejado) */
     font-family: 'Montserrat', sans-serif; /* Tipo da fonte Montserrat */
     left: -10px;
+    cursor: pointer;
 }
 .header04 {
     /* Estilos para o cabeçalho 1 */
