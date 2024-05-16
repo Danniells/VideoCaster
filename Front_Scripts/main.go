@@ -56,6 +56,8 @@ func convertHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func convertVideo(videoUrl string) (string, error) {
+	fmt.Println("Processing video URL:", videoUrl)
+
 	// Download video using youtube-dl
 	cmd := exec.Command("youtube-dl", "-f", "bestaudio", "-o", "-", videoUrl)
 	var stdout, stderr bytes.Buffer
@@ -66,6 +68,9 @@ func convertVideo(videoUrl string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("Error downloading video: %v\n%s", err, stderr.String())
 	}
+
+	// Print the output of the youtube-dl command to the console
+	fmt.Println("youtube-dl output:", stdout.String())
 
 	// Convert audio to MP3 using ffmpeg
 	audioData := stdout.Bytes()
@@ -79,12 +84,18 @@ func convertVideo(videoUrl string) (string, error) {
 		return "", fmt.Errorf("Error converting audio: %v\n%s", err, ffmpegStderr.String())
 	}
 
+	// Print the output of the ffmpeg command to the console
+	fmt.Println("ffmpeg output:", ffmpegStderr.String())
+
 	// Save the converted audio to a file
 	fileUrl := "/Front_Scripts/converted-audio.mp3"
 	err = ioutil.WriteFile(fileUrl, audioData, 0644)
 	if err != nil {
 		return "", fmt.Errorf("Error saving converted audio: %v", err)
 	}
+
+	// Print the output of the ioutil.WriteFile() function to the console
+	fmt.Println("Converted audio saved to:", fileUrl)
 
 	return fileUrl, nil
 }

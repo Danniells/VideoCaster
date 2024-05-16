@@ -4,7 +4,6 @@ const imageInstagram = document.querySelector ('.image-insta');
 const imageEmail = document.querySelector ('.image-email');
 const conversionForm = document.getElementById('conversion-form');
 const urlInput = document.getElementById('url-input');
-const convertButton2 = document.getElementById('convert-button-2');
 
 
 const handleInstagramClick = () =>{
@@ -18,30 +17,26 @@ const handleEmailClick = () =>{
 imageInstagram.addEventListener('click', handleInstagramClick);
 imageEmail.addEventListener('click', handleEmailClick);
 
-
-
- convertButton.addEventListener('click', function() {
-    window.location.href = 'converter.html'; 
-});
-
-convertButton2.addEventListener('click', async () => {
+convertButton.addEventListener('click', async () => {
     const videoUrl = urlInput.value.trim();
     if (videoUrl) {
         try {
-            // Call the Python script using AJAX or a similar approach
-            const response = await fetch('/convert', {
+            // Call the Go server using Fetch API
+            const response = await fetch('http://localhost:8080/convert', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ videoUrl }),
             });
 
             if (response.ok) {
-                console.log('Video converted successfully!');
+                const data = await response.json();
+                console.log('Video conversion requested successfully!');
+                console.log('Converted audio file URL:', data.file_url);
             } else {
-                console.error('Error converting video:', response.statusText);
+                console.error('Error requesting video conversion:', response.statusText);
             }
         } catch (error) {
-            console.error('Error converting video:', error);
+            console.error('Error requesting video conversion:', error);
         }
     } else {
         alert('Please enter a valid YouTube video URL');
