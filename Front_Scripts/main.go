@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"os/exec"
 
 	"github.com/gorilla/handlers"
@@ -24,20 +25,23 @@ func main() {
 
 func convertHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Requisição recebida")
+	log.Println("Request body:", r.Body)
 	if r.Method != "POST" {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 		return
 	}
 
 	body, err := ioutil.ReadAll(r.Body)
-	defer r.Body.Close()
-
 	if err != nil {
 		http.Error(w, "Error reading request body", http.StatusInternalServerError)
 		return
 	}
 
-	var data map[string]string
+	var data struct {
+		VideoUrl string `json:"VideoUrl"`
+	}
+
+	fmt.Println("Request body:", string(body))
 	err = json.Unmarshal(body, &data)
 
 	if err != nil {
@@ -45,7 +49,11 @@ func convertHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	videoUrl := data["videoUrl"]
+	videoUrl := data.VideoUrl
+	if videoUrl == "" {
+		http.Error(w, "Missing videoUrl field in JSON", http.StatusBadRequest)
+		return
+	}
 
 	fileUrl, err := convertVideo(videoUrl)
 
@@ -61,19 +69,39 @@ func convertHandler(w http.ResponseWriter, r *http.Request) {
 func convertVideo(videoUrl string) (string, error) {
 	fmt.Println("Processing video URL:", videoUrl)
 
-	// Download video using youtube-dl
-	cmd := exec.Command("youtube-dl", "-f", "bestaudio", "-o", "-", videoUrl)
+	// Verificar se o comando youtube-dl está instalado
+	cmd := exec.Command("youtube-dl", "-h")
 	var stdout, stderr bytes.Buffer
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
 
 	err := cmd.Run()
 	if err != nil {
+		return "", fmt.Errorf("youtube-dl command not found: %v\n%s", err, stderr.String())
+	}
+
+	// Download video using youtube-dl
+	cmd = exec.Command("youtube-dl", "-f", "bestaudio", "-o", "-", videoUrl)
+	cmd.Stdout = &stdout
+	cmd.Stderr = &stderr
+
+	err = cmd.Run()
+	if err != nil {
 		return "", fmt.Errorf("Error downloading video: %v\n%s", err, stderr.String())
 	}
 
 	// Print the output of the youtube-dl command to the console
 	fmt.Println("youtube-dl output:", stdout.String())
+
+	// Verificar se o comando ffmpeg está instalado
+	cmd = exec.Command("ffmpeg", "-h")
+	cmd.Stdout = &stdout
+	cmd.Stderr = &stderr
+
+	err = cmd.Run()
+	if err != nil {
+		return "", fmt.Errorf("ffmpeg command not found: %v\n%s", err, stderr.String())
+	}
 
 	// Convert audio to MP3 using ffmpeg
 	audioData := stdout.Bytes()
@@ -95,6 +123,11 @@ func convertVideo(videoUrl string) (string, error) {
 	err = ioutil.WriteFile(fileUrl, audioData, 0644)
 	if err != nil {
 		return "", fmt.Errorf("Error saving converted audio: %v", err)
+	}
+
+	// Verificar se o arquivo foi salvo com sucesso
+	if _, err := os.Stat(fileUrl); os.IsNotExist(err) {
+		return "", fmt.Errorf("File %s does not exist", fileUrl)
 	}
 
 	// Print the output of the ioutil.WriteFile() function to the console
