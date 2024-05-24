@@ -8,6 +8,8 @@ import (
 	"log"
 	"net/http"
 	"os/exec"
+
+	"github.com/gorilla/handlers"
 )
 
 func main() {
